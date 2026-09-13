@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Price Board</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="board-root">
+    <div class="board-header">
+      <div>
+        <p class="board-title">PRICE BOARD</p>
+        <p class="board-sub">Estimated time to reach target, based on each stock's recent trend</p>
+      </div>
+      <div class="board-clock">
+        <div id="clock">—</div>
+        <div id="refresh-status">next refresh in —</div>
+      </div>
+    </div>
+
+    <div class="board">
+      <div class="col-heads">
+        <div>TICKER</div>
+        <div>NAME</div>
+        <div>PRICE</div>
+        <div>CHANGE</div>
+        <div>TARGET</div>
+        <div>ETA</div>
+      </div>
+      <div id="rows"></div>
+    </div>
+
+    <p class="board-foot">
+      Prices from Yahoo Finance, refreshed automatically. ETA is a straight-line projection of each stock's
+      trailing 30-session trend — not a real forecast, and it ignores news, earnings, splits, and everything
+      else that actually moves a stock. Click a ticker for the full chart and financial context. This is for
+      fun, not investment advice.
+    </p>
+  </div>
+
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
+      <div id="modal-content">
+        <p class="loading-txt">Loading…</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
